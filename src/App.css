@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none !important;
+}
+
+body {
+  background-color: #11011e;
+  font-family: "Roboto", sans-serif;
+}
+
+ul {
+  list-style: none;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.span-title {
+  color: rgba(15, 174, 150, 1);
+}
+
+.coinlist-image {
+  width: 50px;
+}
+
+.coinlist-item {
+  display: flex;
+}
+
+.coinsummary {
+  border-color: white !important;
+  border-style: outset !important;
+}
+
+.coin-data-category {
+  font-size: 12px;
+}
+
+.delete-icon {
+  display: none;
+  position: absolute;
+  right: 6px;
+}
+
+.coin:hover .delete-icon {
+  display: block;
+}
+
+.custom-btn.btn-primary {
+  background-color: rgba(15, 174, 150, 1) !important;
+  border-color: rgba(15, 174, 150, 1) !important;
+  box-shadow: none !important;
+}
+
+.custom-btn.btn-primary:hover {
+  background-color: rgba(15, 174, 150, 1) !important;
+  border-color: rgba(15, 174, 150, 1) !important;
+  box-shadow: none !important;
+}
+
+.custom-dropdown-item {
+  color: #11011e;
+}
+
+.custom-dropdown-item:hover {
+  background-color: rgba(15, 174, 150, 1);
+  color: #fff;
+}
