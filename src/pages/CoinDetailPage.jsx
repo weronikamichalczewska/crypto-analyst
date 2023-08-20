@@ -2,10 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import HistoryChart from "../components/HistoryChart";
 import CoinData from "../components/CoinData";
-import CoinDataAnalytics from "../components/CoinDataAnalytics";
-import CoinInfo from "../components/CoinInfo";
 import coinGecko from "../apis/coinGecko";
-import CoinMarket from "../components/CoinMarket";
 
 const CoinDetailPage = () => {
   const { id } = useParams();
@@ -24,7 +21,7 @@ const CoinDetailPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const [day, week, month, year, detail] = await Promise.all([
+      const [day, week, year, detail] = await Promise.all([
         coinGecko.get(`/coins/${id}/market_chart/`, {
           params: {
             vs_currency: "usd",
@@ -40,12 +37,6 @@ const CoinDetailPage = () => {
         coinGecko.get(`/coins/${id}/market_chart/`, {
           params: {
             vs_currency: "usd",
-            days: "30",
-          },
-        }),
-        coinGecko.get(`/coins/${id}/market_chart/`, {
-          params: {
-            vs_currency: "usd",
             days: "365",
           },
         }),
@@ -56,12 +47,10 @@ const CoinDetailPage = () => {
           },
         }),
       ]);
-      //console.log(day);
 
       setCoinData({
         day: formatData(day.data.prices),
         week: formatData(week.data.prices),
-        month: formatData(month.data.prices),
         year: formatData(year.data.prices),
         detail: detail.data[0],
       });
@@ -79,13 +68,6 @@ const CoinDetailPage = () => {
       <div className="coinlist">
         <CoinData data={coinData.detail} />
         <HistoryChart data={coinData} />
-        <CoinInfo />
-        <CoinDataAnalytics
-          weekData={coinData.week}
-          monthData={coinData.month}
-          yearData={coinData.year}
-        />
-        <CoinMarket />
       </div>
     );
   };

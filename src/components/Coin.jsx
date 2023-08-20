@@ -6,8 +6,7 @@ const Coin = ({ coin, deleteCoin }) => {
     <Link to={`/coins/${coin.id}`} className="text-decoration-none my-1 coin">
       <li className="coinlist-item list-group-item list-group-item-action d-flex justify-content-between align-items-center text-dark">
         <img className="coinlist-image" src={coin.image} alt="" />
-        <span className="text-decoration-none">{coin.name} | {coin.symbol.toUpperCase()}</span>
-        <span className="text-decoration-none">${coin.current_price.toLocaleString()}</span>
+        <span className="text-decoration-none">{coin.current_price}</span>
 
         <span
           className={
@@ -18,11 +17,11 @@ const Coin = ({ coin, deleteCoin }) => {
         >
           {" "}
           {coin.price_change_percentage_24h < 0 ? (
-            <i className="fas fa-sort-down align-top mr-2"></i>
+            <i className="fas fa-sort-down align-middle mr-1"></i>
           ) : (
-            <i className="fas fa-sort-up align-top mr-2"></i>
+            <i className="fas fa-sort-up align-middle mr-1"></i>
           )}
-          {coin.price_change_percentage_24h.toFixed(1)}%
+          {coin.price_change_percentage_24h}
         </span>
         <i
           onClick={(e) => {
