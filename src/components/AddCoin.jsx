@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import { WatchListContext } from "../context/watchListContext";
+import "../App.css";
 
 const AddCoin = () => {
   const [isActive, setIsActive] = useState(false);
@@ -8,13 +9,11 @@ const AddCoin = () => {
     "bitcoin",
     "ethereum",
     "ripple",
-    "tether",
-    "bitcoin-cash",
-    "litecoin",
-    "eos",
-    "okb",
-    "tezos",
     "cardano",
+    "uniswap",
+    "solana",
+    "litecoin",
+    "avalanche-2",
   ];
 
   const handleClick = (coin) => {
@@ -26,7 +25,7 @@ const AddCoin = () => {
     <div className="dropdown">
       <button
         onClick={() => setIsActive(!isActive)}
-        className="btn btn-primary dropdown-toggle"
+        className="btn btn-primary custom-btn dropdown-toggle"
         type="button"
       >
         Add Coin
@@ -37,7 +36,7 @@ const AddCoin = () => {
             <a
               onClick={() => handleClick(el)}
               href="#"
-              className="dropdown-item"
+              className="dropdown-item custom-dropdown-item" 
             >
               {el}
             </a>

@@ -8,8 +8,6 @@ export const WatchListContextProvider = (props) => {
     localStorage.getItem("watchList")?.split(",") || [
       "bitcoin",
       "ethereum",
-      "ripple",
-      "litecoin",
     ]
   );
 
