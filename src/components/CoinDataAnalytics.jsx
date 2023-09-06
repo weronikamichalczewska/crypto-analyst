@@ -63,27 +63,35 @@ const CoinDataAnalytics = ({ weekData, monthData, yearData }) => {
           "% of the mean value. This means that the price was very volatile and unstable during the analyzed period.";
       }
       let coefficientOfVariationConclusion = "";
-      if (coefficientOfVariation < 10) {
+      if (coefficientOfVariation < 25) {
         coefficientOfVariationConclusion =
           "The standard deviation was " +
           standardDeviation.toFixed(2) +
           ", which represents " +
           coefficientOfVariation.toFixed(2) +
-          "% of the mean value. This means that the price was relatively stable during the analyzed period.";
-      } else if (coefficientOfVariation >= 10 && coefficientOfVariation < 30) {
+          "% of the mean value. This indicates that the price showed very low volatility during the analyzed period.";
+      } else if (coefficientOfVariation >= 25 && coefficientOfVariation < 45) {
         coefficientOfVariationConclusion =
           "The standard deviation was " +
           standardDeviation.toFixed(2) +
           ", which represents " +
           coefficientOfVariation.toFixed(2) +
-          "% of the mean value. This means that the price was moderately volatile during the analyzed period.";
+          "% of the mean value. This indicates that the price showed average volatility during the analyzed period.";
+      } else if (
+        coefficientOfVariation >= 45 &&
+        coefficientOfVariation <= 100
+      ) {
+        coefficientOfVariationConclusion =
+          "The standard deviation was " +
+          standardDeviation.toFixed(2) +
+          ", which represents " +
+          coefficientOfVariation.toFixed(2) +
+          "% of the mean value. This indicates that the price was highly volatile during the analyzed period.";
       } else {
         coefficientOfVariationConclusion =
           "The standard deviation was " +
           standardDeviation.toFixed(2) +
-          ", which represents " +
-          coefficientOfVariation.toFixed(2) +
-          "% of the mean value. This means that the price was very volatile and unstable during the analyzed period.";
+          ", which represents more than 100% of the mean value. This indicates that the price experienced very intense volatility during the analyzed period.";
       }
 
       return (
@@ -157,9 +165,7 @@ const CoinDataAnalytics = ({ weekData, monthData, yearData }) => {
             </div>
             <h3 className="mt-3">Conclusions</h3>
             <p>{MedianConclusion}</p>
-            <p>
-              {coefficientOfVariationConclusion}
-            </p>
+            <p>{coefficientOfVariationConclusion}</p>
             <p className="text-muted coin-data-category">
               Remember that the cryptocurrency exchange rate may depend on many
               factors, including the supply and demand for a particular
