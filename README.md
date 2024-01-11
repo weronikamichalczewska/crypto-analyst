@@ -1,8 +1,17 @@
+The project uses the free version of the API, so there may be issues with retrieving data.
+Below are screenshots from the project:
+
+![image](https://github.com/weronikamichalczewska/crypto-analyst/assets/64775780/532ebec1-b1cb-4844-ae2c-fd8619150ac1)
+![image](https://github.com/weronikamichalczewska/crypto-analyst/assets/64775780/f5f22877-d68f-4ef8-ab28-c43be3db655d)
+![image](https://github.com/weronikamichalczewska/crypto-analyst/assets/64775780/87669288-9452-44a2-8c4f-13a926d2b44c)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
 
 ### `npm start`
 
